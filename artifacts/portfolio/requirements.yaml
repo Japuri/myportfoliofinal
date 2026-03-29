@@ -1,0 +1,25 @@
+packages:
+  "framer-motion": "For smooth scroll reveals, page transitions, and interactive micro-animations requested in the design specs."
+
+images:
+  - path: "artifacts/portfolio/public/images/avatar.png"
+    description: "A highly artistic, moody, abstract portrait or silhouette in monochrome with a subtle warm amber glow, perfect for a high-end creative developer portfolio. Minimalist, premium, editorial style."
+    aspect_ratio: "1:1"
+  - path: "artifacts/portfolio/public/images/project-1.png"
+    description: "Abstract representation of a sleek, dark-themed web application interface. Minimalist geometric shapes, subtle glowing lines, premium editorial look."
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project-2.png"
+    description: "Abstract representation of a mobile app design. Fluid organic shapes, dark mode, high contrast with a warm amber accent color, cinematic lighting."
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project-3.png"
+    description: "Abstract representation of a data dashboard. Minimalist grid patterns, dark theme, subtle glowing data points, very clean and professional."
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project-4.png"
+    description: "Abstract representation of an e-commerce platform. Sophisticated, minimalist typography layout, dark background, premium fashion editorial aesthetic."
+    aspect_ratio: "16:9"
+
+notes:
+  - This is a static, frontend-only portfolio as requested.
+  - Using Framer Motion for scroll animations.
+  - Implemented a custom CSS grain overlay for the requested texture.
+  - Used Tailwind v4 CSS configuration.
