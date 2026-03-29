@@ -20,21 +20,23 @@ export default function Home() {
         <ProfileHeader />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Left Column */}
           <div className="lg:col-span-7">
             <AboutSection />
             <TechStackSection />
             <ProjectsSection />
-            <CertificationsSection />
           </div>
 
+          {/* Right Column */}
           <div className="lg:col-span-5">
             <ExperienceSection />
             <RecommendationsSection />
+            <CertificationsSection />
           </div>
         </div>
       </div>
 
-      <a href="mailto:jakobpuri@email.com">
+      <a href="mailto:japuri0318@gmail.com">
         <Button
           className="fixed bottom-6 right-6 rounded-full shadow-lg gap-2 h-12 px-6 bg-foreground text-background hover:bg-foreground/90 transition-all z-50"
         >

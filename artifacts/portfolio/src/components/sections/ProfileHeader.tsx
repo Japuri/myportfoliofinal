@@ -1,4 +1,4 @@
-import { MapPin, BadgeCheck, GraduationCap, Calendar, Mail, Github, Linkedin, Grid, ArrowUpRight } from "lucide-react";
+import { MapPin, BadgeCheck, GraduationCap, Mail, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -7,12 +7,12 @@ export function ProfileHeader() {
     <div className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8 shadow-sm relative">
       <div className="flex justify-end mb-4">
         <div className="flex gap-2">
-          <a href="https://github.com/jakobpuri" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Japuri" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
               <Github className="w-4 h-4" />
             </Button>
           </a>
-          <a href="https://linkedin.com/in/jakobpuri" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/jakob-edhel-puri-b6bb78288/" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
               <Linkedin className="w-4 h-4" />
             </Button>
@@ -47,24 +47,24 @@ export function ProfileHeader() {
 
             <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 flex w-fit items-center gap-1.5 px-2.5 py-1">
               <GraduationCap className="w-3.5 h-3.5" />
-              Dean's Lister
+              Dean's Lister – Holy Angel University
             </Badge>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <a href="mailto:jakobpuri@email.com">
+            <a href="mailto:japuri0318@gmail.com">
               <Button variant="outline" className="border-border gap-2 shadow-sm">
                 <Mail className="w-4 h-4" />
                 Send Email
               </Button>
             </a>
-            <a href="https://github.com/jakobpuri" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/Japuri" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" className="gap-2 text-muted-foreground hover:text-foreground">
                 <Github className="w-4 h-4" />
                 GitHub
               </Button>
             </a>
-            <a href="https://linkedin.com/in/jakobpuri" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/jakob-edhel-puri-b6bb78288/" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" className="gap-2 text-muted-foreground hover:text-foreground">
                 <Linkedin className="w-4 h-4" />
                 LinkedIn

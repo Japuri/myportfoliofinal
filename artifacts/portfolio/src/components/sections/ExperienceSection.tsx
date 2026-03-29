@@ -12,14 +12,8 @@ const EXPERIENCES = [
     isCurrentJob: false,
   },
   {
-    title: "Dean's Lister",
-    company: "Computer Engineering – University",
-    year: "Ongoing",
-    isCurrentJob: false,
-  },
-  {
     title: "B.S. Computer Engineering",
-    company: "University (Current Student)",
+    company: "Holy Angel University",
     year: "2022–",
     isCurrentJob: false,
   },
