@@ -8,13 +8,15 @@ export function RecommendationsSection() {
           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
         <p className="italic text-sm text-muted-foreground relative z-10 pl-8 leading-relaxed mb-4">
-          "Alex is an exceptional developer who consistently delivers high-quality work. His deep understanding of both frontend and backend technologies, combined with his recent dive into AI, makes him an invaluable asset to any team. He tackles complex problems with elegance and is always willing to share his knowledge."
+          "Jakob is a highly dedicated and skilled developer who delivers quality work on every project. His ability to integrate AI technologies with practical software solutions sets him apart. A fast learner and reliable team member — I'd recommend him without hesitation."
         </p>
         <div className="pl-8 flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-border" />
+          <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">
+            IT
+          </div>
           <div>
-            <div className="text-xs font-semibold text-foreground">Sarah Jenkins</div>
-            <div className="text-xs text-muted-foreground">CTO at TechFlow</div>
+            <div className="text-xs font-semibold text-foreground">Infratratus I.T. Services</div>
+            <div className="text-xs text-muted-foreground">Supervisor</div>
           </div>
         </div>
       </div>

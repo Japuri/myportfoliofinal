@@ -4,13 +4,13 @@ export function AboutSection() {
       <h2 className="text-lg font-semibold mb-4 text-foreground">About</h2>
       <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
         <p>
-          I'm a Full-Stack Developer with a deep passion for building scalable and intuitive web applications. My journey started with a fascination for how things work on the internet, which quickly evolved into a career of solving complex problems through elegant code.
+          I'm a Computer Engineering student and full-stack software developer with a passion for building practical, impactful applications. I work across the entire stack — from crafting clean, responsive frontends to architecting reliable backend systems and RESTful APIs.
         </p>
         <p>
-          Currently, I am heavily focused on the intersection of AI and software engineering. I love integrating large language models into everyday tools to create smarter, more efficient workflows. Whether it's crafting beautiful frontends or architecting robust backends, I thrive on delivering end-to-end solutions.
+          I've been freelancing for 3 years, delivering web solutions for businesses ranging from service companies to AI-powered platforms. I enjoy solving real-world problems through code, whether that's automating workflows, building dashboards, or integrating AI into everyday tools.
         </p>
         <p>
-          Beyond coding, I am an active content creator and community builder. I believe in learning in public and sharing knowledge to help the next generation of developers succeed. When I'm not at my desk, I'm probably exploring new tech trends or reading up on design.
+          Lately, I've been deeply focused on AI integration — exploring how large language models and intelligent systems can enhance the products I build. I'm a Dean's Lister driven by continuous learning, and I love turning complex ideas into clean, working software.
         </p>
       </div>
     </section>

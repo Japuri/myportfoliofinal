@@ -20,7 +20,6 @@ export default function Home() {
         <ProfileHeader />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column (60%) */}
           <div className="lg:col-span-7">
             <AboutSection />
             <TechStackSection />
@@ -28,7 +27,6 @@ export default function Home() {
             <CertificationsSection />
           </div>
 
-          {/* Right Column (40%) */}
           <div className="lg:col-span-5">
             <ExperienceSection />
             <RecommendationsSection />
@@ -36,13 +34,14 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Floating Chat Button */}
-      <Button 
-        className="fixed bottom-6 right-6 rounded-full shadow-lg gap-2 h-12 px-6 bg-foreground text-background hover:bg-foreground/90 transition-all z-50"
-      >
-        <MessageCircle className="w-5 h-5" />
-        <span className="font-medium">Chat with Alex</span>
-      </Button>
+      <a href="mailto:jakobpuri@email.com">
+        <Button
+          className="fixed bottom-6 right-6 rounded-full shadow-lg gap-2 h-12 px-6 bg-foreground text-background hover:bg-foreground/90 transition-all z-50"
+        >
+          <MessageCircle className="w-5 h-5" />
+          <span className="font-medium">Chat with Jakob</span>
+        </Button>
+      </a>
     </div>
   );
 }
