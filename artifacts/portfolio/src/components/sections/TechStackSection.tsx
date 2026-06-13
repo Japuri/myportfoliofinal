@@ -18,6 +18,17 @@ export function TechStackSection() {
         </div>
 
         <div>
+          <h3 className="text-sm font-medium text-foreground mb-3">Mobile Development</h3>
+          <div className="flex flex-wrap gap-2">
+            {["iOS", "Swift", "SwiftUI", "React Native", "Expo"].map((tech) => (
+              <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div>
           <h3 className="text-sm font-medium text-foreground mb-3">Backend</h3>
           <div className="flex flex-wrap gap-2">
             {["Node.js", "Python", "PHP", "Django REST Framework", "PostgreSQL", "MongoDB"].map((tech) => (
