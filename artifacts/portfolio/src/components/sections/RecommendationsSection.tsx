@@ -1,6 +1,6 @@
 export function RecommendationsSection() {
   return (
-    <section className="bg-card border border-border rounded-xl p-6 md:p-8 shadow-sm">
+    <section className="bg-card border border-border rounded-xl p-6 md:p-8 shadow-sm mb-8">
       <h2 className="text-lg font-semibold text-foreground mb-6">Recommendations</h2>
 
       <div className="p-5 bg-muted/50 rounded-lg border border-border/50 relative">
