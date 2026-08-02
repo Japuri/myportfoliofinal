@@ -50,7 +50,18 @@ export function TechStackSection() {
         <div>
           <h3 className="text-sm font-medium text-foreground mb-3">Backend</h3>
           <div className="flex flex-wrap gap-2">
-            {["Node.js", "Python", "PHP", "Django REST Framework", "PostgreSQL", "MongoDB"].map((tech) => (
+            {[
+              "Node.js",
+              "Python",
+              "FastAPI",
+              "PHP",
+              "Django REST Framework",
+              "PostgreSQL",
+              "MongoDB",
+              "ChromaDB",
+              "Ollama",
+              "SQLite",
+            ].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>
@@ -61,7 +72,29 @@ export function TechStackSection() {
         <div>
           <h3 className="text-sm font-medium text-foreground mb-3">DevOps & Cloud</h3>
           <div className="flex flex-wrap gap-2">
-            {["AWS", "Docker", "GitHub Actions"].map((tech) => (
+            {["AWS", "Docker", "Kubernetes", "Cloudflare", "GitHub Actions"].map((tech) => (
+              <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-medium text-foreground mb-3">Automation</h3>
+          <div className="flex flex-wrap gap-2">
+            {["n8n", "OpenAI API", "LangChain"].map((tech) => (
+              <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-medium text-foreground mb-3">Networking</h3>
+          <div className="flex flex-wrap gap-2">
+            {["Terraform"].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>
@@ -72,7 +105,7 @@ export function TechStackSection() {
         <div>
           <h3 className="text-sm font-medium text-foreground mb-3">Tools & Collaboration</h3>
           <div className="flex flex-wrap gap-2">
-            {["OpenAI API", "LangChain", "Git", "GitHub", "REST APIs", "Figma"].map((tech) => (
+            {["Git", "GitHub", "REST APIs", "Figma"].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>

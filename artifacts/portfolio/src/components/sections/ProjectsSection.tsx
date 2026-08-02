@@ -127,7 +127,7 @@ export const ALL_PROJECTS: Project[] = [
     longDescription: "OceanAlpha — A self-hosted, multi-tenant DevSecOps platform I designed and built solo, from architecture through a working payment system. It indexes infrastructure configs (Docker, Terraform, Kubernetes) and incident history, answers questions with real citations, and safely automates operations — without ever holding customers' SSH keys.",
     url: "oceanalpha.cloudaeri.com",
     href: "https://oceanalpha.cloudaeri.com/",
-    tags: ["FastAPI", "ChromaDB", "Ollama", "SQLite", "Docker", "Kubernetes", "Cloudflare", "PayMongo"],
+    tags: ["FastAPI", "ChromaDB", "Ollama", "SQLite", "Docker", "Kubernetes", "Cloudflare", "n8n", "Terraform", "PayMongo"],
     internal: false,
   },
 ];
