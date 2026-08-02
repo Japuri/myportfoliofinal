@@ -13,6 +13,7 @@ export type Project = {
   appStore?: boolean;
   rank?: string;
   platform?: string;
+  githubRepository?: boolean;
 };
 
 export const ALL_PROJECTS: Project[] = [
@@ -84,6 +85,7 @@ export const ALL_PROJECTS: Project[] = [
     href: "https://github.com/Japuri/lovelink-connect",
     tags: ["React", "Node.js", "MongoDB"],
     internal: false,
+    githubRepository: true,
   },
   {
     slug: "workout-generator",
@@ -94,6 +96,7 @@ export const ALL_PROJECTS: Project[] = [
     href: "https://github.com/Japuri/workout-generator",
     tags: ["Python", "OpenAI API", "React"],
     internal: false,
+    githubRepository: true,
   },
   {
     slug: "flooring-services",
@@ -104,6 +107,7 @@ export const ALL_PROJECTS: Project[] = [
     href: "https://github.com/Japuri/flooring-services",
     tags: ["HTML", "CSS", "JavaScript"],
     internal: false,
+    githubRepository: true,
   },
   {
     slug: "handyman",
@@ -114,8 +118,21 @@ export const ALL_PROJECTS: Project[] = [
     href: "https://github.com/Japuri/handyman",
     tags: ["React", "PHP", "MySQL"],
     internal: false,
+    githubRepository: true,
+  },
+  {
+    slug: "oceanalpha",
+    title: "OceanAlpha",
+    description: "Self-hosted, multi-tenant DevSecOps platform",
+    longDescription: "OceanAlpha — A self-hosted, multi-tenant DevSecOps platform I designed and built solo, from architecture through a working payment system. It indexes infrastructure configs (Docker, Terraform, Kubernetes) and incident history, answers questions with real citations, and safely automates operations — without ever holding customers' SSH keys.",
+    url: "oceanalpha.cloudaeri.com",
+    href: "https://oceanalpha.cloudaeri.com/",
+    tags: ["FastAPI", "ChromaDB", "Ollama", "SQLite", "Docker", "Kubernetes", "Cloudflare", "PayMongo"],
+    internal: false,
   },
 ];
+
+export const LIVE_PROJECTS = ALL_PROJECTS.filter(project => !project.githubRepository);
 
 export function ProjectsSection() {
   const [, navigate] = useLocation();
@@ -128,7 +145,7 @@ export function ProjectsSection() {
     }
   };
 
-  const preview = ALL_PROJECTS.slice(0, 4);
+  const preview = LIVE_PROJECTS.slice(0, 4);
 
   return (
     <section className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8 shadow-sm">
@@ -178,7 +195,7 @@ export function ProjectsSection() {
         onClick={() => navigate("/projects")}
         className="mt-4 w-full py-2.5 text-sm text-muted-foreground border border-dashed border-border rounded-lg hover:border-primary/40 hover:text-primary transition-colors"
       >
-        View all {ALL_PROJECTS.length} projects &rarr;
+        View all {LIVE_PROJECTS.length} live projects &rarr;
       </button>
     </section>
   );

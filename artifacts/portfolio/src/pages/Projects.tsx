@@ -10,7 +10,9 @@ export default function Projects() {
 
   const visibleProjects = ALL_PROJECTS
     .map((project, index) => ({ project, index }))
-    .filter(({ index }) => activeFilter === "all" || (index >= 5 && index <= 8));
+    .filter(({ project }) =>
+      activeFilter === "all" ? !project.githubRepository : project.githubRepository,
+    );
 
   const handleClick = (project: Project) => {
     if (project.internal) {
@@ -35,9 +37,13 @@ export default function Projects() {
 
           <div className="flex items-end justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">All Projects</h1>
+              <h1 className="text-3xl font-bold text-foreground mb-2">
+                {activeFilter === "all" ? "Live Projects" : "GitHub repositories"}
+              </h1>
               <p className="text-muted-foreground text-sm">
-                Web apps, iOS apps, and everything in between.
+                {activeFilter === "all"
+                  ? "Published apps and platforms available to explore."
+                  : "Projects built for private use and source-code exploration."}
               </p>
             </div>
             <a href="https://github.com/Japuri" target="_blank" rel="noopener noreferrer">
@@ -60,7 +66,7 @@ export default function Projects() {
                 : "bg-card text-muted-foreground border-border hover:text-foreground hover:border-primary/40"
             }`}
           >
-            All Projects
+            Live Projects
           </button>
           <button
             type="button"
