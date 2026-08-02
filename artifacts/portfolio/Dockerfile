@@ -9,7 +9,8 @@ COPY artifacts/portfolio ./artifacts/portfolio
 COPY artifacts/api-server ./artifacts/api-server
 COPY tsconfig.base.json tsconfig.json ./
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --ignore-scripts
+RUN pnpm rebuild esbuild
 
 ENV PORT=5173
 ENV BASE_PATH=/
