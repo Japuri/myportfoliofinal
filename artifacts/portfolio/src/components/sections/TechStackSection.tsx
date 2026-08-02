@@ -20,7 +20,26 @@ export function TechStackSection() {
         <div>
           <h3 className="text-sm font-medium text-foreground mb-3">Mobile Development</h3>
           <div className="flex flex-wrap gap-2">
-            {["iOS", "Swift", "SwiftUI", "React Native", "Expo"].map((tech) => (
+            {[
+              "iOS",
+              "Swift",
+              "SwiftUI",
+              "Core Data",
+              "CloudKit",
+              "CloudKit (public database, custom sync engine)",
+              "CloudKit Push Notifications (CKQuerySubscription)",
+              "UserNotifications framework",
+              "PhotosUI",
+              "Core Data + CloudKit Dashboard schema management",
+              "XcodeGen",
+              "Xcode",
+              "React Native",
+              "Expo",
+              "Expo Go",
+              "TestFlight",
+              "App Store Connect",
+              "Apple Developer Program",
+            ].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>
@@ -51,9 +70,9 @@ export function TechStackSection() {
         </div>
 
         <div>
-          <h3 className="text-sm font-medium text-foreground mb-3">AI & Tools</h3>
+          <h3 className="text-sm font-medium text-foreground mb-3">Tools & Collaboration</h3>
           <div className="flex flex-wrap gap-2">
-            {["OpenAI API", "LangChain", "Git", "REST APIs", "Figma"].map((tech) => (
+            {["OpenAI API", "LangChain", "Git", "GitHub", "REST APIs", "Figma"].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>

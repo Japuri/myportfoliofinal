@@ -7,7 +7,7 @@ const APP_DETAILS: Record<string, {
   tagline: string;
   fullDescription: string[];
   features: string[];
-  appStoreUrl: string;
+  appStoreUrl?: string;
   icon: string;
   accentColor: string;
   gradientFrom: string;
@@ -56,6 +56,27 @@ const APP_DETAILS: Record<string, {
     accentColor: "text-emerald-600",
     gradientFrom: "from-emerald-50",
     gradientTo: "to-teal-50",
+  },
+  kalimot: {
+    tagline: "Shared Pet Care, Without the Guesswork",
+    fullDescription: [
+      "Kalimot is a privacy-first iOS app for households to manage shared pet care, built and shipped end-to-end as a solo project — from architecture to App Store submission.",
+      "Multi-person households can lose track of who fed, walked, or medicated a pet and when. Kalimot solves that with a simple shared daily checklist, helping prevent double-feeding, missed care, and unclear accountability.",
+      "There are no accounts and no logins. A join code connects a household's devices, keeping the experience simple while allowing everyone to stay in sync.",
+      "Kalimot is currently ranked #5 in Paid Apps.",
+    ],
+    features: [
+      "Shared daily checklist for feeding, walking, medication, and other care",
+      "Household device linking with a simple join code",
+      "Clear record of who completed each care task and when",
+      "Designed to prevent double-feeding and missed care",
+      "No accounts, no logins, and a privacy-first experience",
+      "Built and shipped end-to-end as a solo iOS project",
+    ],
+    icon: "images/kalimot-icon.png",
+    accentColor: "text-stone-700",
+    gradientFrom: "from-stone-50",
+    gradientTo: "to-amber-50",
   },
 };
 
@@ -173,14 +194,22 @@ export default function AppDetail() {
           </div>
           <div className="flex-1 text-center sm:text-left">
             <p className="text-sm font-semibold text-foreground">{project.title}</p>
-            <p className="text-xs text-muted-foreground">iOS · Paid App · App Store</p>
+            <p className="text-xs text-muted-foreground">
+              {detail.appStoreUrl ? "iOS · Paid App · App Store" : "iOS · Paid App · App Store listing"}
+            </p>
           </div>
-          <a href={detail.appStoreUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-            <Button className="w-full sm:w-auto gap-2 bg-black text-white hover:bg-black/90 px-6">
-              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              View on App Store
-            </Button>
-          </a>
+          {detail.appStoreUrl ? (
+            <a href={detail.appStoreUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto gap-2 bg-black text-white hover:bg-black/90 px-6">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                View on App Store
+              </Button>
+            </a>
+          ) : (
+            <span className="text-xs text-muted-foreground text-center sm:text-right max-w-[180px]">
+              App Store link coming soon
+            </span>
+          )}
         </div>
 
       </div>
