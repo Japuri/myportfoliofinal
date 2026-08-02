@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLocation } from "wouter";
 import { ArrowLeft, ExternalLink, Github, Smartphone } from "lucide-react";
 import { ALL_PROJECTS, type Project } from "@/components/sections/ProjectsSection";
@@ -5,6 +6,11 @@ import { Button } from "@/components/ui/button";
 
 export default function Projects() {
   const [, navigate] = useLocation();
+  const [activeFilter, setActiveFilter] = useState<"all" | "github">("all");
+
+  const visibleProjects = ALL_PROJECTS
+    .map((project, index) => ({ project, index }))
+    .filter(({ index }) => activeFilter === "all" || (index >= 5 && index <= 8));
 
   const handleClick = (project: Project) => {
     if (project.internal) {
@@ -43,16 +49,44 @@ export default function Projects() {
           </div>
         </div>
 
+        <div className="flex flex-wrap items-center gap-2 mb-6" aria-label="Project filters">
+          <button
+            type="button"
+            onClick={() => setActiveFilter("all")}
+            aria-pressed={activeFilter === "all"}
+            className={`px-3 py-2 text-sm font-medium rounded-lg border transition-colors ${
+              activeFilter === "all"
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-card text-muted-foreground border-border hover:text-foreground hover:border-primary/40"
+            }`}
+          >
+            All Projects
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveFilter("github")}
+            aria-pressed={activeFilter === "github"}
+            className={`inline-flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg border transition-colors ${
+              activeFilter === "github"
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-card text-muted-foreground border-border hover:text-foreground hover:border-primary/40"
+            }`}
+          >
+            <Github className="w-4 h-4" />
+            GitHub repositories
+          </button>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {ALL_PROJECTS.map((project, i) => (
+          {visibleProjects.map(({ project, index }) => (
             <button
-              key={i}
+              key={project.slug}
               onClick={() => handleClick(project)}
               className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all group flex flex-col text-left cursor-pointer"
             >
               <div className="flex items-start justify-between mb-3">
                 <span className="text-xs font-mono text-muted-foreground/50 bg-muted px-2 py-0.5 rounded">
-                  {String(i + 1).padStart(2, "0")}
+                  {String(index + 1).padStart(2, "0")}
                 </span>
                 {project.appStore ? (
                   <div className="flex items-center gap-1.5">
