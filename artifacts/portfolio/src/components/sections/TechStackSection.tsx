@@ -9,37 +9,7 @@ export function TechStackSection() {
         <div>
           <h3 className="text-sm font-medium text-foreground mb-3">Frontend</h3>
           <div className="flex flex-wrap gap-2">
-            {["JavaScript", "TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS"].map((tech) => (
-              <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-sm font-medium text-foreground mb-3">Mobile Development</h3>
-          <div className="flex flex-wrap gap-2">
-            {[
-              "iOS",
-              "Swift",
-              "SwiftUI",
-              "Core Data",
-              "CloudKit",
-              "CloudKit (public database, custom sync engine)",
-              "CloudKit Push Notifications (CKQuerySubscription)",
-              "UserNotifications framework",
-              "PhotosUI",
-              "Core Data + CloudKit Dashboard schema management",
-              "XcodeGen",
-              "Xcode",
-              "React Native",
-              "Expo",
-              "Expo Go",
-              "TestFlight",
-              "App Store Connect",
-              "Apple Developer Program",
-            ].map((tech) => (
+            {["JavaScript", "TypeScript", "React", "Vite", "Tailwind CSS"].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>
@@ -51,16 +21,13 @@ export function TechStackSection() {
           <h3 className="text-sm font-medium text-foreground mb-3">Backend</h3>
           <div className="flex flex-wrap gap-2">
             {[
-              "Node.js",
               "Python",
+              "Node.js",
+              "Express.js",
               "FastAPI",
-              "PHP",
-              "Django REST Framework",
-              "PostgreSQL",
-              "MongoDB",
-              "ChromaDB",
-              "Ollama",
-              "SQLite",
+              "Django / Django REST Framework",
+              "REST APIs",
+              "WebSockets",
             ].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
@@ -70,9 +37,26 @@ export function TechStackSection() {
         </div>
 
         <div>
-          <h3 className="text-sm font-medium text-foreground mb-3">DevOps & Cloud</h3>
+          <h3 className="text-sm font-medium text-foreground mb-3">DevOps, Cloud & Infrastructure</h3>
           <div className="flex flex-wrap gap-2">
-            {["AWS", "Docker", "Kubernetes", "Cloudflare", "GitHub Actions"].map((tech) => (
+            {[
+              "AWS",
+              "Docker",
+              "Docker Compose",
+              "Proxmox",
+              "Linux",
+              "GitHub Actions",
+              "Vercel",
+              "Netlify",
+              "Render",
+              "Railway",
+              "Heroku",
+              "AWS S3",
+              "AWS Lambda",
+              "AWS DynamoDB",
+              "AWS Cognito",
+              "AWS Amplify",
+            ].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>
@@ -81,9 +65,23 @@ export function TechStackSection() {
         </div>
 
         <div>
-          <h3 className="text-sm font-medium text-foreground mb-3">Automation</h3>
+          <h3 className="text-sm font-medium text-foreground mb-3">Networking & Systems</h3>
           <div className="flex flex-wrap gap-2">
-            {["n8n", "OpenAI API", "LangChain"].map((tech) => (
+            {[
+              "TCP/IP networking",
+              "DNS",
+              "Static IP configuration",
+              "Netplan",
+              "SSH",
+              "SSH key authentication",
+              "VPN / Tailscale",
+              "Virtual machines",
+              "Network interfaces / bridges",
+              "Linux server administration",
+              "RAID / storage concepts",
+              "iDRAC",
+              "Dell PowerEdge servers",
+            ].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>
@@ -92,9 +90,20 @@ export function TechStackSection() {
         </div>
 
         <div>
-          <h3 className="text-sm font-medium text-foreground mb-3">Networking</h3>
+          <h3 className="text-sm font-medium text-foreground mb-3">AI & Machine Learning</h3>
           <div className="flex flex-wrap gap-2">
-            {["Terraform"].map((tech) => (
+            {[
+              "RAG (Retrieval-Augmented Generation)",
+              "LLM integration",
+              "AI automation",
+              "LangChain",
+              "OpenAI",
+              "Anthropic / Claude",
+              "Claude Code",
+              "Codex",
+              "AI-powered APIs",
+              "Vector / knowledge-base concepts",
+            ].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>
@@ -103,9 +112,64 @@ export function TechStackSection() {
         </div>
 
         <div>
-          <h3 className="text-sm font-medium text-foreground mb-3">Tools & Collaboration</h3>
+          <h3 className="text-sm font-medium text-foreground mb-3">Databases & Data</h3>
           <div className="flex flex-wrap gap-2">
-            {["Git", "GitHub", "REST APIs", "Figma"].map((tech) => (
+            {[
+              "PostgreSQL",
+              "SQLite",
+              "Supabase",
+              "DynamoDB",
+              "Database architecture",
+              "Offline-first data storage",
+            ].map((tech) => (
+              <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-medium text-foreground mb-3">Automation & Tools</h3>
+          <div className="flex flex-wrap gap-2">
+            {["n8n", "Git", "GitHub", "Visual Studio Code"].map((tech) => (
+              <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-medium text-foreground mb-3">Mobile</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              "React Native",
+              "Expo",
+              "iOS development",
+              "iOS Simulator",
+              "Apple App Store deployment",
+            ].map((tech) => (
+              <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-medium text-foreground mb-3">Security</h3>
+          <div className="flex flex-wrap gap-2">
+            {[
+              "Authentication & authorization concepts",
+              "JWT",
+              "OAuth concepts",
+              "IAM concepts",
+              "Data isolation",
+              "Multi-tenant security",
+              "DevSecOps concepts",
+              "Privacy-first architecture",
+            ].map((tech) => (
               <span key={tech} className="px-3 py-1.5 bg-muted text-foreground text-xs font-medium rounded-md border border-border/50">
                 {tech}
               </span>
