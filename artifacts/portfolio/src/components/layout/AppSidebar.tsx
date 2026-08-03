@@ -1,0 +1,109 @@
+import {
+  User,
+  Layers,
+  FolderKanban,
+  Briefcase,
+  Star,
+  Award,
+  Mail,
+  Github,
+  Linkedin,
+  BadgeCheck,
+} from "lucide-react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarSeparator,
+} from "@/components/ui/sidebar";
+import { Button } from "@/components/ui/button";
+import type { SectionKey } from "@/pages/Home";
+
+export const NAV_ITEMS: { key: SectionKey; label: string; icon: typeof User }[] = [
+  { key: "about", label: "About", icon: User },
+  { key: "stack", label: "Tech Stack", icon: Layers },
+  { key: "projects", label: "Projects", icon: FolderKanban },
+  { key: "experience", label: "Experience", icon: Briefcase },
+  { key: "recommendations", label: "Recommendations", icon: Star },
+  { key: "certifications", label: "Certifications", icon: Award },
+];
+
+export function AppSidebar({
+  active,
+  onSelect,
+}: {
+  active: SectionKey;
+  onSelect: (key: SectionKey) => void;
+}) {
+  return (
+    <Sidebar>
+      <SidebarHeader className="p-4">
+        <div className="flex items-center gap-3">
+          <div className="w-11 h-11 shrink-0 rounded-xl overflow-hidden border border-sidebar-border bg-muted">
+            <img
+              src={`${import.meta.env.BASE_URL}images/avatar.jpeg`}
+              alt="Jakob Edhel A Puri"
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+          <div className="min-w-0">
+            <div className="flex items-center gap-1">
+              <span className="font-semibold text-sm truncate">Jakob Edhel A Puri</span>
+              <BadgeCheck className="w-3.5 h-3.5 text-primary shrink-0" />
+            </div>
+            <p className="text-xs text-muted-foreground truncate">App · Software · AI</p>
+          </div>
+        </div>
+      </SidebarHeader>
+
+      <SidebarSeparator />
+
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {NAV_ITEMS.map((item) => (
+                <SidebarMenuItem key={item.key}>
+                  <SidebarMenuButton
+                    isActive={active === item.key}
+                    onClick={() => onSelect(item.key)}
+                  >
+                    <item.icon />
+                    <span>{item.label}</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+
+      <SidebarFooter className="p-4 gap-3">
+        <a href="mailto:japuri0318@gmail.com" className="w-full">
+          <Button className="w-full gap-2" size="sm">
+            <Mail className="w-4 h-4" />
+            Send Email
+          </Button>
+        </a>
+        <div className="flex items-center justify-center gap-1">
+          <a href="https://github.com/Japuri" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
+              <Github className="w-4 h-4" />
+            </Button>
+          </a>
+          <a href="https://www.linkedin.com/in/jakob-edhel-puri-b6bb78288/" target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
+              <Linkedin className="w-4 h-4" />
+            </Button>
+          </a>
+        </div>
+      </SidebarFooter>
+    </Sidebar>
+  );
+}
