@@ -6,6 +6,7 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { CertificationsSection } from "@/components/sections/CertificationsSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { RecommendationsSection } from "@/components/sections/RecommendationsSection";
+import { ResourcesSection } from "@/components/sections/ResourcesSection";
 import { AppSidebar, NAV_ITEMS } from "@/components/layout/AppSidebar";
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
@@ -16,7 +17,8 @@ export type SectionKey =
   | "projects"
   | "experience"
   | "recommendations"
-  | "certifications";
+  | "certifications"
+  | "resources";
 
 export default function Home() {
   const [active, setActive] = useState<SectionKey>("about");
@@ -50,6 +52,7 @@ export default function Home() {
             {active === "experience" && <ExperienceSection />}
             {active === "recommendations" && <RecommendationsSection />}
             {active === "certifications" && <CertificationsSection />}
+            {active === "resources" && <ResourcesSection />}
           </div>
         </div>
       </SidebarInset>

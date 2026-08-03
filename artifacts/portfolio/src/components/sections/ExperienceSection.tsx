@@ -27,7 +27,7 @@ const EXPERIENCES = [
 
 export function ExperienceSection() {
   return (
-    <section className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8 shadow-sm">
+    <section className="mb-8">
       <h2 className="text-lg font-semibold text-foreground mb-6">Experience</h2>
 
       <div className="space-y-6 relative before:absolute before:inset-0 before:ml-[7px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-[2px] before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent">

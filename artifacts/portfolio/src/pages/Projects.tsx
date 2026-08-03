@@ -100,7 +100,7 @@ export default function Projects() {
                     <button
                       key={project.slug}
                       onClick={() => handleClick(project)}
-                      className="bg-card border border-border rounded-xl p-5 hover:border-primary/50 hover:shadow-md transition-all group flex flex-col text-left cursor-pointer"
+                      className="p-5 border-b border-border hover:bg-muted/30 rounded-lg transition-colors group flex flex-col text-left cursor-pointer"
                     >
                       <div className="flex items-start justify-between mb-3">
                         <span className="text-xs font-mono text-muted-foreground/50 bg-muted px-2 py-0.5 rounded">

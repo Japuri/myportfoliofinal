@@ -1,6 +1,6 @@
 export function AboutSection() {
   return (
-    <section className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8 shadow-sm">
+    <section className="mb-8">
       <h2 className="text-lg font-semibold mb-4 text-foreground">About Me</h2>
       <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
         <p>

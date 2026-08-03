@@ -1,12 +1,12 @@
 export function TechStackSection() {
   return (
-    <section className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8 shadow-sm">
+    <section className="mb-8">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-foreground">Tech Stack</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-        <div>
+      <div className="columns-1 md:columns-2 gap-x-8">
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">Frontend</h3>
           <div className="flex flex-wrap gap-2">
             {["JavaScript", "TypeScript", "React", "Vite", "Tailwind CSS"].map((tech) => (
@@ -17,7 +17,7 @@ export function TechStackSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">Backend</h3>
           <div className="flex flex-wrap gap-2">
             {[
@@ -36,7 +36,7 @@ export function TechStackSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">DevOps, Cloud & Infrastructure</h3>
           <div className="flex flex-wrap gap-2">
             {[
@@ -64,7 +64,7 @@ export function TechStackSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">Networking & Systems</h3>
           <div className="flex flex-wrap gap-2">
             {[
@@ -89,7 +89,7 @@ export function TechStackSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">AI & Machine Learning</h3>
           <div className="flex flex-wrap gap-2">
             {[
@@ -111,7 +111,7 @@ export function TechStackSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">Databases & Data</h3>
           <div className="flex flex-wrap gap-2">
             {[
@@ -129,7 +129,7 @@ export function TechStackSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">Automation & Tools</h3>
           <div className="flex flex-wrap gap-2">
             {["n8n", "Git", "GitHub", "Visual Studio Code"].map((tech) => (
@@ -140,7 +140,7 @@ export function TechStackSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">Mobile</h3>
           <div className="flex flex-wrap gap-2">
             {[
@@ -157,7 +157,7 @@ export function TechStackSection() {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 break-inside-avoid">
           <h3 className="text-sm font-medium text-foreground mb-3">Security</h3>
           <div className="flex flex-wrap gap-2">
             {[

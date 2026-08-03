@@ -48,7 +48,7 @@ const CERTIFICATIONS: Cert[] = [
 
 export function CertificationsSection() {
   return (
-    <section className="bg-card border border-border rounded-xl p-6 md:p-8 shadow-sm mb-8">
+    <section className="mb-8">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-foreground">Certifications</h2>
       </div>

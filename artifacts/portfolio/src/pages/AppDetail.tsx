@@ -143,7 +143,7 @@ export default function AppDetail() {
         </div>
 
         {/* About */}
-        <div className="bg-card border border-border rounded-xl p-6 shadow-sm mb-6">
+        <div className="mb-6 pb-6 border-b border-border">
           <h2 className="text-base font-semibold text-foreground mb-4">About</h2>
           <div className="space-y-3">
             {detail.fullDescription.map((para, i) => (
@@ -153,7 +153,7 @@ export default function AppDetail() {
         </div>
 
         {/* Features */}
-        <div className="bg-card border border-border rounded-xl p-6 shadow-sm mb-6">
+        <div className="mb-6 pb-6 border-b border-border">
           <h2 className="text-base font-semibold text-foreground mb-4">Key Features</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {detail.features.map((feature, i) => (
@@ -166,17 +166,17 @@ export default function AppDetail() {
         </div>
 
         {/* Stats row */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
-          <div className="bg-card border border-border rounded-xl p-4 shadow-sm text-center">
+        <div className="grid grid-cols-3 divide-x divide-border mb-6 pb-6 border-b border-border">
+          <div className="text-center">
             <Trophy className="w-5 h-5 text-amber-500 mx-auto mb-2" />
             <div className="text-lg font-bold text-foreground">{project.rank?.split(" ")[0]}</div>
             <div className="text-xs text-muted-foreground">Paid Apps</div>
           </div>
-          <div className="bg-card border border-border rounded-xl p-4 shadow-sm text-center">
+          <div className="text-center">
             <div className="text-lg font-bold text-foreground mb-1">iOS</div>
             <div className="text-xs text-muted-foreground">Platform</div>
           </div>
-          <div className="bg-card border border-border rounded-xl p-4 shadow-sm text-center">
+          <div className="text-center">
             <Download className="w-5 h-5 text-primary mx-auto mb-2" />
             <div className="text-lg font-bold text-foreground">App Store</div>
             <div className="text-xs text-muted-foreground">Available on</div>
@@ -184,7 +184,7 @@ export default function AppDetail() {
         </div>
 
         {/* App Store CTA */}
-        <div className="bg-card border border-border rounded-xl p-6 shadow-sm flex flex-col sm:flex-row items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4">
           <div className="w-14 h-14 rounded-2xl overflow-hidden border border-border/30 shadow shrink-0 bg-white">
             <img
               src={`${import.meta.env.BASE_URL}${detail.icon}`}

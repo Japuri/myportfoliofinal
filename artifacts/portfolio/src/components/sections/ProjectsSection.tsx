@@ -161,7 +161,7 @@ export function ProjectsSection() {
   const preview = LIVE_PROJECTS.slice(0, 4);
 
   return (
-    <section className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8 shadow-sm">
+    <section className="mb-8">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-foreground">Recent Projects</h2>
         <button
@@ -172,12 +172,12 @@ export function ProjectsSection() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 divide-y divide-border">
         {preview.map((project, i) => (
           <button
             key={i}
             onClick={() => handleClick(project)}
-            className="p-4 border border-border rounded-lg hover:border-primary/50 hover:shadow-sm transition-all bg-card flex flex-col text-left h-full group"
+            className="py-4 first:pt-0 hover:bg-muted/30 -mx-2 px-2 rounded-lg transition-colors flex flex-col text-left group"
           >
             <span className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground/50 mb-1">
               {project.category}

@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function ProfileHeader() {
   return (
-    <div className="bg-card border border-border rounded-xl p-6 md:p-8 mb-8 shadow-sm relative">
+    <div className="mb-8 relative">
       <div className="flex justify-end mb-4">
         <div className="flex gap-2">
           <a href="https://github.com/Japuri" target="_blank" rel="noopener noreferrer">

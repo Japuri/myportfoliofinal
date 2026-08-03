@@ -5,6 +5,7 @@ import {
   Briefcase,
   Star,
   Award,
+  BookMarked,
   Mail,
   Github,
   Linkedin,
@@ -32,6 +33,7 @@ export const NAV_ITEMS: { key: SectionKey; label: string; icon: typeof User }[] 
   { key: "experience", label: "Experience", icon: Briefcase },
   { key: "recommendations", label: "Recommendations", icon: Star },
   { key: "certifications", label: "Certifications", icon: Award },
+  { key: "resources", label: "Resources", icon: BookMarked },
 ];
 
 export function AppSidebar({
