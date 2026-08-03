@@ -1,6 +1,8 @@
 import { ExternalLink, Smartphone } from "lucide-react";
 import { useLocation } from "wouter";
 
+export type ProjectCategory = "Mobile Development" | "AI Platforms" | "Software Platforms";
+
 export type Project = {
   slug: string;
   title: string;
@@ -9,6 +11,7 @@ export type Project = {
   url: string;
   href: string;
   tags: string[];
+  category: ProjectCategory;
   internal?: boolean;
   appStore?: boolean;
   rank?: string;
@@ -25,6 +28,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "App Store · iOS",
     href: "/projects/travii",
     tags: ["React Native", "Expo", "iOS", "TestFlight"],
+    category: "Mobile Development",
     internal: true,
     appStore: true,
     rank: "#1 in Paid Apps",
@@ -38,6 +42,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "App Store · iOS",
     href: "/projects/morrii",
     tags: ["React Native", "Expo", "iOS", "TestFlight"],
+    category: "Mobile Development",
     internal: true,
     appStore: true,
     rank: "#4 in Paid Apps",
@@ -51,6 +56,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "App Store · iOS",
     href: "/projects/kalimot",
     tags: ["Swift", "SwiftUI", "Core Data", "CloudKit"],
+    category: "Mobile Development",
     internal: true,
     appStore: true,
     rank: "#5 in Paid Apps",
@@ -64,6 +70,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "datacstle.netlify.app",
     href: "https://datacstle.netlify.app/",
     tags: ["React", "Node.js", "WebSocket", "PostgreSQL"],
+    category: "Software Platforms",
     internal: false,
   },
   {
@@ -74,6 +81,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "jeeproute.vercel.app",
     href: "https://jeeproute.vercel.app/",
     tags: ["React", "Maps API", "TypeScript"],
+    category: "Software Platforms",
     internal: false,
   },
   {
@@ -84,6 +92,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "github.com/Japuri/lovelink-connect",
     href: "https://github.com/Japuri/lovelink-connect",
     tags: ["React", "Node.js", "MongoDB"],
+    category: "Software Platforms",
     internal: false,
     githubRepository: true,
   },
@@ -95,6 +104,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "github.com/Japuri/workout-generator",
     href: "https://github.com/Japuri/workout-generator",
     tags: ["Python", "OpenAI API", "React"],
+    category: "AI Platforms",
     internal: false,
     githubRepository: true,
   },
@@ -106,6 +116,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "github.com/Japuri/flooring-services",
     href: "https://github.com/Japuri/flooring-services",
     tags: ["HTML", "CSS", "JavaScript"],
+    category: "Software Platforms",
     internal: false,
     githubRepository: true,
   },
@@ -117,6 +128,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "github.com/Japuri/handyman",
     href: "https://github.com/Japuri/handyman",
     tags: ["React", "PHP", "MySQL"],
+    category: "Software Platforms",
     internal: false,
     githubRepository: true,
   },
@@ -128,6 +140,7 @@ export const ALL_PROJECTS: Project[] = [
     url: "oceanalpha.cloudaeri.com",
     href: "https://oceanalpha.cloudaeri.com/",
     tags: ["FastAPI", "ChromaDB", "Ollama", "SQLite", "Docker", "Kubernetes", "Cloudflare", "n8n", "Terraform", "PayMongo"],
+    category: "AI Platforms",
     internal: false,
   },
 ];
@@ -159,13 +172,16 @@ export function ProjectsSection() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4">
         {preview.map((project, i) => (
           <button
             key={i}
             onClick={() => handleClick(project)}
             className="p-4 border border-border rounded-lg hover:border-primary/50 hover:shadow-sm transition-all bg-card flex flex-col text-left h-full group"
           >
+            <span className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground/50 mb-1">
+              {project.category}
+            </span>
             <div className="flex items-start justify-between mb-1 w-full">
               <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                 {project.title}

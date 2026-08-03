@@ -5,7 +5,7 @@ export function TechStackSection() {
         <h2 className="text-lg font-semibold text-foreground">Tech Stack</h2>
       </div>
 
-      <div className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
         <div>
           <h3 className="text-sm font-medium text-foreground mb-3">Frontend</h3>
           <div className="flex flex-wrap gap-2">

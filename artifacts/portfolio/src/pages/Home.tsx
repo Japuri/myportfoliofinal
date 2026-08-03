@@ -24,11 +24,11 @@ export default function Home() {
           <div className="lg:col-span-7">
             <AboutSection />
             <TechStackSection />
-            <ProjectsSection />
           </div>
 
           {/* Right Column */}
           <div className="lg:col-span-5">
+            <ProjectsSection />
             <ExperienceSection />
             <RecommendationsSection />
             <CertificationsSection />
