@@ -9,6 +9,9 @@ export function AboutSection() {
         <p>
           I'm currently building OceanAlpha and constantly exploring new technologies, solving real-world problems, and turning ideas into software that people can actually use.
         </p>
+        <p>
+          In my free time, my hobby is building apps that people actually use — I like picking apart fun, tricky problems and shipping something real out the other end.
+        </p>
       </div>
     </section>
   );

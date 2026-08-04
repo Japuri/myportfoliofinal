@@ -5,7 +5,7 @@ const EXPERIENCES = [
     year: "Present",
     isCurrentJob: true,
     description:
-      "Build and maintain web platforms and internal tooling end-to-end — React/TypeScript frontends on FastAPI and Node.js backends, deployed on Docker and AWS. Working on infrastructure automation and safe AI-assisted operations, including RAG pipelines that ground LLM answers in real internal docs and configs instead of hallucinating them.",
+      "Led the development and implementation of the company's website, which continues to be used by 100% of company operations today. Managed and maintained the platform, reducing downtime by 30% and improving load times by 25%. Conducted software testing using Postman and custom scripts, identifying and resolving bugs/issues for smoother functionality. Utilized programming to build and optimize features, contributing to a more efficient workflow for the team.",
   },
   {
     title: "Full-Stack Developer (Freelance)",
@@ -13,7 +13,7 @@ const EXPERIENCES = [
     year: "2022–2025",
     isCurrentJob: false,
     description:
-      "Designed, built, and shipped software solo for clients and personal ventures — three React Native / Swift iOS apps (Travii, Morrii, Kalimot) that each cracked the Top 5 in Paid Apps within a week of launch, plus web platforms spanning real-time dashboards, route-finding tools, AI-powered generators, and business booking sites. Delivered the full lifecycle: architecture, auth, payments, deployment, and post-launch support.",
+      "Developed SaaS platforms and mobile apps for clients based in the US, handling everything from architecture to deployment. Built three React Native / Swift iOS apps (Travii, Morrii, Kalimot) that each reached the Top 5 in Paid Apps within a week of launch, plus web platforms spanning real-time dashboards, route-finding tools, AI-powered generators, and booking systems that helped clients streamline day-to-day operations and cut manual admin work. Delivered the full lifecycle: architecture, auth, payments, deployment, and post-launch support.",
   },
   {
     title: "B.S. Computer Engineering",
