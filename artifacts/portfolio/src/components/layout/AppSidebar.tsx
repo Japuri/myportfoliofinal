@@ -59,7 +59,7 @@ export function AppSidebar({
               <span className="font-semibold text-sm truncate">Jakob Edhel A Puri</span>
               <BadgeCheck className="w-3.5 h-3.5 text-primary shrink-0" />
             </div>
-            <p className="text-xs text-muted-foreground truncate">App · Software · AI</p>
+            <p className="text-xs text-muted-foreground truncate">App · Software · AI · Infra</p>
           </div>
         </div>
       </SidebarHeader>
