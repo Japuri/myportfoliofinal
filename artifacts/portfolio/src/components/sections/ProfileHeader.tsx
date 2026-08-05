@@ -42,7 +42,7 @@ export function ProfileHeader() {
             </div>
 
             <div className="text-sm font-medium text-foreground mb-3">
-              App Developer · Software Developer · AI Integration
+              App Developer · Software Developer · AI Integration · Infrastructure
             </div>
 
             <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 flex w-fit items-center gap-1.5 px-2.5 py-1">
