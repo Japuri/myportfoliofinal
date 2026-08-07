@@ -24,6 +24,8 @@ jobs:
           SSH_HOST: ${{ secrets.DEPLOY_SSH_HOSTNAME }}
           SSH_USER: ${{ secrets.DEPLOY_SSH_USER }}
           SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_KEY" > ~/.ssh/id_deploy
@@ -38,4 +40,4 @@ jobs:
             ProxyCommand cloudflared access ssh --hostname %h
           EOF
 
-          ssh deploy-target "bash /opt/portfolio/deploy.sh"
+          ssh deploy-target
