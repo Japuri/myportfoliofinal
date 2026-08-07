@@ -9,6 +9,18 @@ type Cert = {
 
 const CERTIFICATIONS: Cert[] = [
   {
+    name: "LLMOps: Building Real-World Applications With Large Language Models",
+    provider: "Udacity",
+    href: "https://www.udacity.com/certificate/e/b45c79ca-921b-11f1-895e-1f8def29d172",
+    type: "certificate",
+  },
+  {
+    name: "Operationalizing Cloud Security with Deepfence ThreatMapper",
+    provider: "Udacity",
+    href: "https://www.udacity.com/certificate/e/81875302-921c-11f1-8629-0b792aeae211",
+    type: "certificate",
+  },
+  {
     name: "Certified Social Media (Network) Cyber Security & Analysis: Level 1",
     provider: "Alison",
     href: "https://alison.com",
