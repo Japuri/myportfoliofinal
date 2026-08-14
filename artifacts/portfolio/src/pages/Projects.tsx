@@ -1,14 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, ExternalLink, Github, Lock, Maximize2, Smartphone } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Lock, Maximize2, Smartphone, X } from "lucide-react";
 import { ALL_PROJECTS, type Project, type ProjectCategory } from "@/components/sections/ProjectsSection";
 
 const CATEGORY_ORDER: ProjectCategory[] = ["Mobile Development", "AI Platforms", "Software Platforms"];
 import { Button } from "@/components/ui/button";
 
+function ImageLightbox({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) {
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={alt}
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-8"
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        className="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+      >
+        <X className="w-5 h-5" />
+      </button>
+      <img
+        src={src}
+        alt={alt}
+        onClick={(e) => e.stopPropagation()}
+        className="max-w-[95vw] max-h-[85vh] sm:max-w-[90vw] sm:max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+      />
+    </div>
+  );
+}
+
 export default function Projects() {
   const [, navigate] = useLocation();
   const [activeFilter, setActiveFilter] = useState<"all" | "github">("all");
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
   const visibleProjects = ALL_PROJECTS
     .map((project, index) => ({ project, index }))
@@ -101,8 +141,8 @@ export default function Projects() {
                     return (
                     <button
                       key={project.slug}
+                      type="button"
                       onClick={() => handleClick(project)}
-                      disabled={!isClickable}
                       className={`p-5 border-b border-border rounded-lg transition-colors group flex flex-col text-left ${isClickable ? "hover:bg-muted/30 cursor-pointer" : "cursor-default"}`}
                     >
                       <div className="flex items-start justify-between mb-3">
@@ -130,12 +170,19 @@ export default function Projects() {
                           title="Click to view full size"
                           onClick={(e) => {
                             e.stopPropagation();
-                            window.open(`${import.meta.env.BASE_URL}${project.image}`, "_blank", "noopener,noreferrer");
+                            setLightboxImage({
+                              src: `${import.meta.env.BASE_URL}${project.image}`,
+                              alt: `${project.title} screenshot`,
+                            });
                           }}
                           onKeyDown={(e) => {
                             if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
                               e.stopPropagation();
-                              window.open(`${import.meta.env.BASE_URL}${project.image}`, "_blank", "noopener,noreferrer");
+                              setLightboxImage({
+                                src: `${import.meta.env.BASE_URL}${project.image}`,
+                                alt: `${project.title} screenshot`,
+                              });
                             }
                           }}
                           className="relative mb-3 rounded-lg overflow-hidden border border-border/60 bg-muted cursor-zoom-in group/img"
@@ -179,6 +226,14 @@ export default function Projects() {
         </div>
 
       </div>
+
+      {lightboxImage && (
+        <ImageLightbox
+          src={lightboxImage.src}
+          alt={lightboxImage.alt}
+          onClose={() => setLightboxImage(null)}
+        />
+      )}
     </div>
   );
 }
