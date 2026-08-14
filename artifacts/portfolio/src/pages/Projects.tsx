@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, ExternalLink, Github, Smartphone } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Lock, Smartphone } from "lucide-react";
 import { ALL_PROJECTS, type Project, type ProjectCategory } from "@/components/sections/ProjectsSection";
 
 const CATEGORY_ORDER: ProjectCategory[] = ["Mobile Development", "AI Platforms", "Software Platforms"];
@@ -19,7 +19,7 @@ export default function Projects() {
   const handleClick = (project: Project) => {
     if (project.internal) {
       navigate(project.href);
-    } else {
+    } else if (project.href) {
       window.open(project.href, "_blank", "noopener,noreferrer");
     }
   };
@@ -96,11 +96,14 @@ export default function Projects() {
                   {category}
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                  {projectsInCategory.map(({ project, index }) => (
+                  {projectsInCategory.map(({ project, index }) => {
+                    const isClickable = project.internal || Boolean(project.href);
+                    return (
                     <button
                       key={project.slug}
                       onClick={() => handleClick(project)}
-                      className="p-5 border-b border-border hover:bg-muted/30 rounded-lg transition-colors group flex flex-col text-left cursor-pointer"
+                      disabled={!isClickable}
+                      className={`p-5 border-b border-border rounded-lg transition-colors group flex flex-col text-left ${isClickable ? "hover:bg-muted/30 cursor-pointer" : "cursor-default"}`}
                     >
                       <div className="flex items-start justify-between mb-3">
                         <span className="text-xs font-mono text-muted-foreground/50 bg-muted px-2 py-0.5 rounded">
@@ -113,12 +116,24 @@ export default function Projects() {
                             </span>
                             <Smartphone className="w-4 h-4 text-primary/60" />
                           </div>
-                        ) : (
+                        ) : project.href ? (
                           <ExternalLink className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary transition-colors" />
+                        ) : (
+                          <Lock className="w-4 h-4 text-muted-foreground/40" />
                         )}
                       </div>
 
-                      <h2 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-2 text-base">
+                      {project.image && (
+                        <div className="mb-3 rounded-lg overflow-hidden border border-border/60 bg-muted">
+                          <img
+                            src={`${import.meta.env.BASE_URL}${project.image}`}
+                            alt={`${project.title} screenshot`}
+                            className="w-full h-auto object-cover"
+                          />
+                        </div>
+                      )}
+
+                      <h2 className={`font-semibold text-foreground mb-2 text-base ${isClickable ? "group-hover:text-primary transition-colors" : ""}`}>
                         {project.title}
                       </h2>
                       <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
@@ -137,7 +152,8 @@ export default function Projects() {
                         {project.url}
                       </p>
                     </button>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );

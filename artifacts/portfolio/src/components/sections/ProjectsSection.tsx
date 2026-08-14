@@ -17,6 +17,7 @@ export type Project = {
   rank?: string;
   platform?: string;
   githubRepository?: boolean;
+  image?: string;
 };
 
 export const ALL_PROJECTS: Project[] = [
@@ -143,6 +144,18 @@ export const ALL_PROJECTS: Project[] = [
     category: "AI Platforms",
     internal: false,
   },
+  {
+    slug: "job-discovery-pipeline",
+    title: "Job Discovery Pipeline",
+    description: "Automated internship/job discovery pipeline built on n8n",
+    longDescription: "A self-hosted n8n pipeline that pulls listings from 3 job APIs and an RSS feed every 6 hours, normalizes each source's differently-shaped data into a common schema, scores relevance with a weighted keyword system (title matches weighted above description matches), and deduplicates against an existing Notion database by URL before writing new matches into a tracker.",
+    url: "Self-hosted · n8n workflow",
+    href: "",
+    tags: ["n8n", "Docker", "Tailscale", "Notion API", "JavaScript", "REST/RSS"],
+    category: "AI Platforms",
+    internal: false,
+    image: "images/job-pipeline-screenshot.png",
+  },
 ];
 
 export const LIVE_PROJECTS = ALL_PROJECTS.filter(project => !project.githubRepository);
@@ -153,7 +166,7 @@ export function ProjectsSection() {
   const handleClick = (project: Project) => {
     if (project.internal) {
       navigate(project.href);
-    } else {
+    } else if (project.href) {
       window.open(project.href, "_blank", "noopener,noreferrer");
     }
   };
