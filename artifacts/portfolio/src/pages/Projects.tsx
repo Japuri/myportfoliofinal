@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, ExternalLink, Github, Lock, Smartphone } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Lock, Maximize2, Smartphone } from "lucide-react";
 import { ALL_PROJECTS, type Project, type ProjectCategory } from "@/components/sections/ProjectsSection";
 
 const CATEGORY_ORDER: ProjectCategory[] = ["Mobile Development", "AI Platforms", "Software Platforms"];
@@ -124,12 +124,30 @@ export default function Projects() {
                       </div>
 
                       {project.image && (
-                        <div className="mb-3 rounded-lg overflow-hidden border border-border/60 bg-muted">
+                        <div
+                          role="button"
+                          tabIndex={0}
+                          title="Click to view full size"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(`${import.meta.env.BASE_URL}${project.image}`, "_blank", "noopener,noreferrer");
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.stopPropagation();
+                              window.open(`${import.meta.env.BASE_URL}${project.image}`, "_blank", "noopener,noreferrer");
+                            }
+                          }}
+                          className="relative mb-3 rounded-lg overflow-hidden border border-border/60 bg-muted cursor-zoom-in group/img"
+                        >
                           <img
                             src={`${import.meta.env.BASE_URL}${project.image}`}
                             alt={`${project.title} screenshot`}
                             className="w-full h-auto object-cover"
                           />
+                          <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/30 transition-colors flex items-center justify-center">
+                            <Maximize2 className="w-6 h-6 text-white opacity-0 group-hover/img:opacity-100 transition-opacity" />
+                          </div>
                         </div>
                       )}
 

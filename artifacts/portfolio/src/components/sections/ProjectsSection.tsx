@@ -110,6 +110,17 @@ export const ALL_PROJECTS: Project[] = [
     githubRepository: true,
   },
   {
+    slug: "vaulti",
+    title: "Vaulti",
+    description: "Self-hosted, privacy-focused cloud storage — live with paying customers",
+    longDescription: "A subscription-based, privacy-focused cloud storage platform I designed, built, and operate solo under my company, CloudAeri, as a private alternative to Google Photos/Drive. Runs on a self-managed Dell PowerEdge R630 with a Dockerized Nextcloud stack behind a Cloudflare Tunnel and no exposed inbound ports, RAID1-backed automated backups, and custom monitoring/alerting — live with real, paying customers.",
+    url: "vaulti.cloudaeri.com",
+    href: "https://vaulti.cloudaeri.com/",
+    tags: ["Nextcloud", "Proxmox", "Docker", "PostgreSQL", "Cloudflare Tunnel", "mdadm RAID1", "Postfix"],
+    category: "Software Platforms",
+    internal: false,
+  },
+  {
     slug: "flooring-services",
     title: "Flooring Services",
     description: "Business website for a flooring services company",
