@@ -27,6 +27,15 @@ export default function Home() {
     window.scrollTo(0, 0);
   }, [active]);
 
+  useEffect(() => {
+    const onNavigateSection = (e: Event) => {
+      const section = (e as CustomEvent<SectionKey>).detail;
+      if (section) setActive(section);
+    };
+    window.addEventListener("app:navigate-section", onNavigateSection);
+    return () => window.removeEventListener("app:navigate-section", onNavigateSection);
+  }, []);
+
   const activeLabel = NAV_ITEMS.find((item) => item.key === active)?.label ?? "";
 
   return (

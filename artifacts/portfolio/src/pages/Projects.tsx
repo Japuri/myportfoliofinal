@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { ArrowLeft, ExternalLink, Github, Lock, Maximize2, Smartphone, X } from "lucide-react";
 import { ALL_PROJECTS, type Project, type ProjectCategory } from "@/components/sections/ProjectsSection";
+import { useLoading } from "@/lib/loading";
 
 const CATEGORY_ORDER: ProjectCategory[] = ["Mobile Development", "AI Platforms", "Software Platforms"];
 import { Button } from "@/components/ui/button";
@@ -47,6 +48,7 @@ function ImageLightbox({ src, alt, onClose }: { src: string; alt: string; onClos
 
 export default function Projects() {
   const [, navigate] = useLocation();
+  const { withLoading } = useLoading();
   const [activeFilter, setActiveFilter] = useState<"all" | "github">("all");
   const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
 
@@ -58,9 +60,9 @@ export default function Projects() {
 
   const handleClick = (project: Project) => {
     if (project.internal) {
-      navigate(project.href);
+      withLoading(() => navigate(project.href));
     } else if (project.href) {
-      window.open(project.href, "_blank", "noopener,noreferrer");
+      withLoading(() => window.open(project.href, "_blank", "noopener,noreferrer"));
     }
   };
 
@@ -70,7 +72,7 @@ export default function Projects() {
 
         <div className="mb-10">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => withLoading(() => navigate("/"))}
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

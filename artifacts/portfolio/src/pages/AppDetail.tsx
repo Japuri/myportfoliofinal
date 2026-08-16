@@ -2,6 +2,7 @@ import { useLocation, useParams } from "wouter";
 import { ArrowLeft, Trophy, Download } from "lucide-react";
 import { ALL_PROJECTS } from "@/components/sections/ProjectsSection";
 import { Button } from "@/components/ui/button";
+import { useLoading } from "@/lib/loading";
 
 const APP_DETAILS: Record<string, {
   tagline: string;
@@ -82,6 +83,7 @@ const APP_DETAILS: Record<string, {
 
 export default function AppDetail() {
   const [, navigate] = useLocation();
+  const { withLoading } = useLoading();
   const params = useParams<{ slug: string }>();
   const slug = params.slug;
 
@@ -93,7 +95,7 @@ export default function AppDetail() {
       <div className="min-h-screen bg-[#fafafa] flex items-center justify-center">
         <div className="text-center">
           <p className="text-muted-foreground mb-4">Project not found</p>
-          <Button onClick={() => navigate("/projects")} variant="outline">Back to Projects</Button>
+          <Button onClick={() => withLoading(() => navigate("/projects"))} variant="outline">Back to Projects</Button>
         </div>
       </div>
     );
@@ -105,7 +107,7 @@ export default function AppDetail() {
 
         {/* Back nav */}
         <button
-          onClick={() => navigate("/projects")}
+          onClick={() => withLoading(() => navigate("/projects"))}
           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

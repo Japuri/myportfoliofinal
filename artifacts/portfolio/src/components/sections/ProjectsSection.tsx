@@ -1,5 +1,6 @@
 import { ExternalLink, Smartphone } from "lucide-react";
 import { useLocation } from "wouter";
+import { useLoading } from "@/lib/loading";
 
 export type ProjectCategory = "Mobile Development" | "AI Platforms" | "Software Platforms";
 
@@ -173,12 +174,13 @@ export const LIVE_PROJECTS = ALL_PROJECTS.filter(project => !project.githubRepos
 
 export function ProjectsSection() {
   const [, navigate] = useLocation();
+  const { withLoading } = useLoading();
 
   const handleClick = (project: Project) => {
     if (project.internal) {
-      navigate(project.href);
+      withLoading(() => navigate(project.href));
     } else if (project.href) {
-      window.open(project.href, "_blank", "noopener,noreferrer");
+      withLoading(() => window.open(project.href, "_blank", "noopener,noreferrer"));
     }
   };
 
@@ -189,7 +191,7 @@ export function ProjectsSection() {
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-foreground">Recent Projects</h2>
         <button
-          onClick={() => navigate("/projects")}
+          onClick={() => withLoading(() => navigate("/projects"))}
           className="text-sm text-primary hover:underline font-medium"
         >
           View All &rarr;
@@ -232,7 +234,7 @@ export function ProjectsSection() {
       </div>
 
       <button
-        onClick={() => navigate("/projects")}
+        onClick={() => withLoading(() => navigate("/projects"))}
         className="mt-4 w-full py-2.5 text-sm text-muted-foreground border border-dashed border-border rounded-lg hover:border-primary/40 hover:text-primary transition-colors"
       >
         View all {LIVE_PROJECTS.length} live projects &rarr;

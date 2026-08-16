@@ -1,14 +1,39 @@
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { Github, FolderKanban, Award, CalendarDays } from "lucide-react";
 import { ALL_PROJECTS } from "@/components/sections/ProjectsSection";
 import { CERTIFICATIONS } from "@/components/sections/CertificationsSection";
+import { useLoading } from "@/lib/loading";
+import type { SectionKey } from "@/pages/Home";
 
 const EVENTS = CERTIFICATIONS.filter((cert) => cert.type === "participation");
 const CERTS = CERTIFICATIONS.filter((cert) => cert.type === "certificate");
 const GITHUB_USERNAME = "Japuri";
 
+function goToSection(section: SectionKey) {
+  window.dispatchEvent(new CustomEvent<SectionKey>("app:navigate-section", { detail: section }));
+}
+
 export function AboutSection() {
   const [, navigate] = useLocation();
+  const { withLoading } = useLoading();
+  const [totalContributions, setTotalContributions] = useState<number | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        const total = data?.total?.lastYear;
+        if (!cancelled && typeof total === "number") setTotalContributions(total);
+      })
+      .catch(() => {
+        /* non-critical — heatmap still renders without a total */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <section className="mb-8">
@@ -27,7 +52,7 @@ export function AboutSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
         <button
-          onClick={() => navigate("/projects")}
+          onClick={() => withLoading(() => navigate("/projects"))}
           className="text-left p-4 rounded-lg border border-border/50 hover:border-primary/40 hover:bg-muted/30 transition-all group"
         >
           <div className="flex items-center gap-2 mb-2 text-muted-foreground">
@@ -42,27 +67,37 @@ export function AboutSection() {
           </p>
         </button>
 
-        <div className="p-4 rounded-lg border border-border/50">
+        <button
+          onClick={() => withLoading(() => goToSection("certifications"))}
+          className="text-left p-4 rounded-lg border border-border/50 hover:border-primary/40 hover:bg-muted/30 transition-all group"
+        >
           <div className="flex items-center gap-2 mb-2 text-muted-foreground">
             <CalendarDays className="w-4 h-4" />
             <span className="text-xs font-semibold uppercase tracking-wide">Events Attended</span>
           </div>
-          <div className="text-2xl font-bold text-foreground">{EVENTS.length}</div>
+          <div className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+            {EVENTS.length}
+          </div>
           <p className="text-xs text-muted-foreground mt-1">
             Seminars, workshops &amp; tech talks
           </p>
-        </div>
+        </button>
 
-        <div className="p-4 rounded-lg border border-border/50">
+        <button
+          onClick={() => withLoading(() => goToSection("certifications"))}
+          className="text-left p-4 rounded-lg border border-border/50 hover:border-primary/40 hover:bg-muted/30 transition-all group"
+        >
           <div className="flex items-center gap-2 mb-2 text-muted-foreground">
             <Award className="w-4 h-4" />
             <span className="text-xs font-semibold uppercase tracking-wide">Certifications</span>
           </div>
-          <div className="text-2xl font-bold text-foreground">{CERTS.length}</div>
+          <div className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+            {CERTS.length}
+          </div>
           <p className="text-xs text-muted-foreground mt-1">
             Udacity, Alison &amp; Simplilearn
           </p>
-        </div>
+        </button>
       </div>
 
       {EVENTS.length > 0 && (
@@ -85,9 +120,16 @@ export function AboutSection() {
       )}
 
       <div>
-        <div className="flex items-center gap-2 mb-3 text-muted-foreground">
-          <Github className="w-4 h-4" />
-          <h3 className="text-xs font-semibold uppercase tracking-wide">GitHub Activity</h3>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <Github className="w-4 h-4" />
+            <h3 className="text-xs font-semibold uppercase tracking-wide">GitHub Activity</h3>
+          </div>
+          {totalContributions !== null && (
+            <span className="text-xs font-medium text-foreground">
+              {totalContributions.toLocaleString()} contributions in the last year
+            </span>
+          )}
         </div>
         <div className="p-4 rounded-lg border border-border/50 overflow-x-auto">
           <img
