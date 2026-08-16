@@ -1,13 +1,13 @@
 import { FileText, Award, ExternalLink } from "lucide-react";
 
-type Cert = {
+export type Cert = {
   name: string;
   provider: string;
   href: string;
   type: "certificate" | "participation";
 };
 
-const CERTIFICATIONS: Cert[] = [
+export const CERTIFICATIONS: Cert[] = [
   {
     name: "LLMOps: Building Real-World Applications With Large Language Models",
     provider: "Udacity",
