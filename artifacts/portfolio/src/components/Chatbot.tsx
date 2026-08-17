@@ -11,7 +11,7 @@ interface ChatMessage {
 const STORAGE_KEY = "chatbot-history";
 const GREETING: ChatMessage = {
   role: "assistant",
-  text: "Hey, I'm Jakob's portfolio assistant. Ask me about his projects, stack, or experience.",
+  text: "Hey, I'm Jakob. Ask me about my projects, stack, or experience.",
 };
 
 function loadHistory(): ChatMessage[] {
@@ -112,8 +112,8 @@ export function Chatbot() {
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold leading-none">Portfolio Assistant</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">Ask about Jakob's work</p>
+                  <p className="text-sm font-semibold leading-none">Chat with Jakob</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Ask about my work</p>
                 </div>
               </div>
               <button
@@ -159,7 +159,7 @@ export function Chatbot() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="Ask about Jakob's projects..."
+                  placeholder="Ask me about my projects..."
                   disabled={isSending}
                   className="flex-1 min-w-0 h-10 rounded-lg border border-border bg-background px-3 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:opacity-60"
                 />
