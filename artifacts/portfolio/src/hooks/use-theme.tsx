@@ -12,6 +12,8 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 const STORAGE_KEY = "theme";
 const WIPE_MS = 700;
 
+let activeTransition: ViewTransition | null = null;
+
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";
   const stored = localStorage.getItem(STORAGE_KEY);
@@ -32,6 +34,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleTheme = (origin?: { x: number; y: number }) => {
+    // A wipe already mid-flight fighting a new one is what actually reads as
+    // "not smooth" — finish it instantly before starting the next transition.
+    if (activeTransition) {
+      activeTransition.skipTransition();
+      activeTransition = null;
+    }
+
     const next: Theme = theme === "dark" ? "light" : "dark";
     const x = origin?.x ?? window.innerWidth / 2;
     const y = origin?.y ?? window.innerHeight / 2;
@@ -55,6 +64,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
 
     const transition = document.startViewTransition(applyChange);
+    activeTransition = transition;
+    transition.finished.finally(() => {
+      if (activeTransition === transition) activeTransition = null;
+    });
 
     transition.ready.then(() => {
       document.documentElement.animate(

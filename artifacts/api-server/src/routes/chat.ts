@@ -87,7 +87,7 @@ router.post("/chat", async (req, res) => {
         systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
         generationConfig: {
           temperature: 0.8,
-          maxOutputTokens: 300,
+          maxOutputTokens: 1024,
         },
       }),
     });

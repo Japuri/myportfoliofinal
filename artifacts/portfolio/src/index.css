@@ -182,6 +182,7 @@ body::after {
 ::view-transition-new(root) {
   animation: none;
   z-index: 2;
+  will-change: clip-path;
 }
 
 /* Hide scrollbar for cleaner look */
