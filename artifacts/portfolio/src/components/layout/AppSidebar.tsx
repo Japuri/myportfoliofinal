@@ -10,6 +10,8 @@ import {
   Github,
   Linkedin,
   BadgeCheck,
+  Sun,
+  Moon,
 } from "lucide-react";
 import {
   Sidebar,
@@ -24,6 +26,8 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { useTheme } from "@/hooks/use-theme";
 import type { SectionKey } from "@/pages/Home";
 
 export const NAV_ITEMS: { key: SectionKey; label: string; icon: typeof User }[] = [
@@ -43,6 +47,8 @@ export function AppSidebar({
   active: SectionKey;
   onSelect: (key: SectionKey) => void;
 }) {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <Sidebar>
       <SidebarHeader className="p-4">
@@ -93,6 +99,28 @@ export function AppSidebar({
             Send Email
           </Button>
         </a>
+        <div
+          className="flex items-center justify-between gap-2 px-1 py-1.5 rounded-md border border-sidebar-border"
+          data-testid="theme-toggle"
+        >
+          <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+            {theme === "dark" ? (
+              <Moon className="w-3.5 h-3.5" />
+            ) : (
+              <Sun className="w-3.5 h-3.5" />
+            )}
+            <span>{theme === "dark" ? "Dark" : "Light"} mode</span>
+          </div>
+          <Switch
+            checked={theme === "dark"}
+            onClick={(event) => {
+              const rect = event.currentTarget.getBoundingClientRect();
+              toggleTheme({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+            }}
+            onCheckedChange={() => {}}
+            aria-label="Toggle dark mode"
+          />
+        </div>
         <div className="flex items-center justify-center gap-1">
           <a href="https://github.com/Japuri" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">

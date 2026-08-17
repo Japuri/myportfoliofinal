@@ -67,7 +67,7 @@ export default function Projects() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] py-12 px-4 sm:px-6">
+    <div className="min-h-screen bg-background py-12 px-4 sm:px-6">
       <div className="max-w-[1000px] mx-auto">
 
         <div className="mb-10">

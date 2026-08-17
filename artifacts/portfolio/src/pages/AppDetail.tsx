@@ -92,7 +92,7 @@ export default function AppDetail() {
 
   if (!project || !detail) {
     return (
-      <div className="min-h-screen bg-[#fafafa] flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <p className="text-muted-foreground mb-4">Project not found</p>
           <Button onClick={() => withLoading(() => navigate("/projects"))} variant="outline">Back to Projects</Button>
@@ -102,7 +102,7 @@ export default function AppDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fafafa] py-12 px-4 sm:px-6">
+    <div className="min-h-screen bg-background py-12 px-4 sm:px-6">
       <div className="max-w-[800px] mx-auto">
 
         {/* Back nav */}

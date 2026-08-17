@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <SidebarProvider>
       <AppSidebar active={active} onSelect={setActive} />
-      <SidebarInset className="bg-[#fafafa]">
+      <SidebarInset className="bg-background">
         <header className="flex h-14 shrink-0 items-center gap-2 border-b border-border px-4 bg-card">
           <SidebarTrigger className="-ml-1" />
           <Separator orientation="vertical" className="h-4" />
