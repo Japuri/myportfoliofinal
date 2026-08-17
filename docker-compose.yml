@@ -7,6 +7,20 @@ services:
     restart: unless-stopped
     networks:
       - homelab
+    depends_on:
+      - api-server
+
+  api-server:
+    build:
+      context: .
+      dockerfile: artifacts/api-server/Dockerfile
+    container_name: api-server
+    restart: unless-stopped
+    environment:
+      PORT: 3000
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+    networks:
+      - homelab
 
 networks:
   homelab:

@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LoadingProvider, TopLoadingBar } from "@/lib/loading";
 import { ThemeProvider } from "@/hooks/use-theme";
+import { Chatbot } from "@/components/Chatbot";
 import Home from "@/pages/Home";
 import Projects from "@/pages/Projects";
 import AppDetail from "@/pages/AppDetail";
@@ -39,6 +40,7 @@ function App() {
             <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
               <Router />
             </WouterRouter>
+            <Chatbot />
             <Toaster />
           </LoadingProvider>
         </TooltipProvider>
