@@ -10,6 +10,7 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 const STORAGE_KEY = "theme";
+const WIPE_MS = 700;
 
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";
@@ -18,42 +19,58 @@ function getInitialTheme(): Theme {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
+function applyThemeClass(theme: Theme) {
+  document.documentElement.classList.toggle("dark", theme === "dark");
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.classList.toggle("dark", theme === "dark");
+    applyThemeClass(theme);
     localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
+  }, []);
 
   const toggleTheme = (origin?: { x: number; y: number }) => {
-    const next = theme === "dark" ? "light" : "dark";
-
-    const root = document.documentElement;
+    const next: Theme = theme === "dark" ? "light" : "dark";
     const x = origin?.x ?? window.innerWidth / 2;
     const y = origin?.y ?? window.innerHeight / 2;
-    const maxRadius = Math.hypot(
+    const radius = Math.hypot(
       Math.max(x, window.innerWidth - x),
       Math.max(y, window.innerHeight - y)
     );
 
-    root.style.setProperty("--theme-origin-x", `${x}px`);
-    root.style.setProperty("--theme-origin-y", `${y}px`);
-    root.style.setProperty("--theme-max-radius", `${maxRadius}px`);
+    const applyChange = () => {
+      setTheme(next);
+      applyThemeClass(next);
+      localStorage.setItem(STORAGE_KEY, next);
+    };
 
-    root.classList.add("theme-transitioning");
-    if (next === "dark") {
-      root.classList.add("theme-turning-dark");
-    } else {
-      root.classList.add("theme-turning-light");
+    // Prefer the native View Transitions API: it swaps the theme instantly
+    // under the hood and lets us animate a clip-path circle revealing the
+    // new theme over the old one directly — no flat overlay, no hold.
+    if (!document.startViewTransition || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      applyChange();
+      return;
     }
 
-    window.setTimeout(() => setTheme(next), 20);
+    const transition = document.startViewTransition(applyChange);
 
-    window.setTimeout(() => {
-      root.classList.remove("theme-transitioning", "theme-turning-dark", "theme-turning-light");
-    }, 1400);
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${radius + 8}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: WIPE_MS,
+          easing: "cubic-bezier(0.65, 0, 0.35, 1)",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
   };
 
   return (

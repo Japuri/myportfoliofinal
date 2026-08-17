@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { Github, FolderKanban, Award, CalendarDays } from "lucide-react";
 import { ALL_PROJECTS } from "@/components/sections/ProjectsSection";
 import { CERTIFICATIONS } from "@/components/sections/CertificationsSection";
+import { GithubHeatmap } from "@/components/sections/GithubHeatmap";
 import { useLoading } from "@/lib/loading";
 import type { SectionKey } from "@/pages/Home";
 
@@ -131,13 +132,8 @@ export function AboutSection() {
             </span>
           )}
         </div>
-        <div className="p-4 rounded-lg border border-border/50 overflow-x-auto">
-          <img
-            src={`https://ghchart.rshah.org/2563eb/${GITHUB_USERNAME}`}
-            alt={`${GITHUB_USERNAME}'s GitHub contribution activity`}
-            className="w-full min-w-[640px]"
-            loading="lazy"
-          />
+        <div className="p-4 pt-6 rounded-lg border border-border/50 overflow-x-auto">
+          <GithubHeatmap username={GITHUB_USERNAME} />
         </div>
         <a
           href={`https://github.com/${GITHUB_USERNAME}`}

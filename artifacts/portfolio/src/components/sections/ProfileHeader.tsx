@@ -21,9 +21,9 @@ export function ProfileHeader() {
       </div>
 
       <div className="flex flex-col md:flex-row gap-6 items-start">
-        <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-2xl overflow-hidden border border-border bg-muted">
+        <div className="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-2xl overflow-hidden border border-border bg-muted transition-colors duration-300">
           <img
-            src={`${import.meta.env.BASE_URL}images/avatar.jpeg`}
+            src={`${import.meta.env.BASE_URL}images/avatar-nobg.png`}
             alt="Jakob Edhel A Puri"
             className="w-full h-full object-cover object-top"
           />

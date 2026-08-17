@@ -53,9 +53,9 @@ export function AppSidebar({
     <Sidebar>
       <SidebarHeader className="p-4">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 shrink-0 rounded-xl overflow-hidden border border-sidebar-border bg-muted">
+          <div className="w-11 h-11 shrink-0 rounded-xl overflow-hidden border border-sidebar-border bg-muted transition-colors duration-300">
             <img
-              src={`${import.meta.env.BASE_URL}images/avatar.jpeg`}
+              src={`${import.meta.env.BASE_URL}images/avatar-nobg.png`}
               alt="Jakob Edhel A Puri"
               className="w-full h-full object-cover object-top"
             />
