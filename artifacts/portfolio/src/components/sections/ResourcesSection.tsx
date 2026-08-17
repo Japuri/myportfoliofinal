@@ -17,12 +17,12 @@ const RESOURCE_GROUPS: ResourceGroup[] = [
     resources: [
       {
         name: "MDN Web Docs",
-        description: "The reference for HTML, CSS, and JavaScript — still the most reliable source when you need the real spec, not a blog's summary of it.",
+        description: "The definitive reference for HTML, CSS, and JavaScript — the most reliable source when you need the actual specification, not a secondhand summary.",
         href: "https://developer.mozilla.org/",
       },
       {
         name: "roadmap.sh",
-        description: "Visual, up-to-date roadmaps for frontend, backend, DevOps, and more — useful for spotting gaps in what you know.",
+        description: "Visual, up-to-date roadmaps for frontend, backend, DevOps, and more — useful for identifying gaps in your knowledge.",
         href: "https://roadmap.sh/",
       },
       {
@@ -32,7 +32,7 @@ const RESOURCE_GROUPS: ResourceGroup[] = [
       },
       {
         name: "The Odin Project",
-        description: "A free full-stack curriculum built around actually shipping projects, not just watching videos.",
+        description: "A free full-stack curriculum built around shipping real projects rather than passively watching videos.",
         href: "https://www.theodinproject.com/",
       },
     ],
@@ -57,7 +57,7 @@ const RESOURCE_GROUPS: ResourceGroup[] = [
       },
       {
         name: "Papers with Code",
-        description: "Machine learning research paired with the code that implements it — good for going past the marketing layer of AI.",
+        description: "Machine learning research paired with its reference implementation — useful for understanding AI beyond the marketing narrative.",
         href: "https://paperswithcode.com/",
       },
     ],
@@ -67,22 +67,22 @@ const RESOURCE_GROUPS: ResourceGroup[] = [
     resources: [
       {
         name: "Hacker News",
-        description: "Where a lot of the software industry argues about what actually matters, in real time.",
+        description: "A real-time forum where much of the software industry debates what genuinely matters.",
         href: "https://news.ycombinator.com/",
       },
       {
         name: "dev.to",
-        description: "A community-driven feed of practical, often refreshingly unglamorous engineering writing.",
+        description: "A community-driven feed of practical, grounded engineering writing.",
         href: "https://dev.to/",
       },
       {
         name: "GitHub Trending",
-        description: "A daily pulse on what the developer community is actually building and adopting right now.",
+        description: "A daily snapshot of what the developer community is currently building and adopting.",
         href: "https://github.com/trending",
       },
       {
         name: "TLDR Newsletter",
-        description: "A short daily roundup of tech, startup, and AI news for people who don't have time to read ten sites a day.",
+        description: "A concise daily roundup of tech, startup, and AI news for readers with limited time.",
         href: "https://tldr.tech/",
       },
     ],
@@ -94,8 +94,8 @@ export function ResourcesSection() {
     <section className="mb-8">
       <h2 className="text-lg font-semibold text-foreground mb-2">Resources</h2>
       <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-[640px]">
-        A hand-picked list of the resources I keep coming back to — for learning to build software,
-        getting into AI engineering, and staying current. Free or freemium, and genuinely worth your time.
+        A curated list of resources I return to regularly — for learning to build software,
+        getting into AI engineering, and staying current. All free or freemium, and worth the time.
       </p>
 
       <div className="space-y-8">

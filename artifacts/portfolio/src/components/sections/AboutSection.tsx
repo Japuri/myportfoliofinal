@@ -41,13 +41,13 @@ export function AboutSection() {
       <h2 className="text-lg font-semibold mb-4 text-foreground">About Me</h2>
       <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed mb-8">
         <p>
-          I'm a full-stack software developer and founder. I build modern web and mobile applications, with a focus on system design, infrastructure, networking, and generative AI.
+          I am a full-stack software developer and founder, focused on system design, infrastructure, networking, and generative AI across modern web and mobile applications.
         </p>
         <p>
-          I'm currently building OceanAlpha and constantly exploring new technologies, solving real-world problems, and turning ideas into software that people can actually use.
+          I am currently building OceanAlpha while continuing to explore new technologies, solve real-world problems, and turn ideas into software that people genuinely rely on.
         </p>
         <p>
-          In my free time, my hobby is building apps that people actually use — I like picking apart fun, tricky problems and shipping something real out the other end.
+          Outside of client work, I enjoy building applications for their own sake — taking on interesting technical problems and following each one through to a finished, working product.
         </p>
       </div>
 

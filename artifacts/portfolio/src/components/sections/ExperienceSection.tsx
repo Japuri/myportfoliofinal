@@ -24,12 +24,12 @@ const EXPERIENCES = [
       "Dean's Lister studying computer architecture, networking, and embedded systems alongside software engineering fundamentals — the systems-level grounding that now shows up in how I approach infrastructure, networking, and server administration work.",
   },
   {
-    title: "Hello World! 🎉",
-    company: "Wrote my first line of code",
+    title: "First Line of Code",
+    company: "Self-Taught Beginnings",
     year: "2019",
     isCurrentJob: false,
     description:
-      "Started teaching myself to code out of curiosity, well before any of this was a career plan. Everything since has built on that first script.",
+      "Began learning to code independently, out of personal curiosity rather than a defined career plan. Every project since has built on that foundation.",
   },
 ];
 
