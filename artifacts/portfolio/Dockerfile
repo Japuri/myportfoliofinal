@@ -9,6 +9,7 @@ COPY artifacts/portfolio ./artifacts/portfolio
 COPY artifacts/api-server ./artifacts/api-server
 COPY tsconfig.base.json tsconfig.json ./
 
+ENV npm_config_network_timeout=600000
 RUN pnpm install --frozen-lockfile --ignore-scripts
 RUN pnpm rebuild esbuild
 
