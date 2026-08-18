@@ -55,6 +55,11 @@ export function Chatbot() {
 
       const data = (await res.json().catch(() => null)) as { reply?: string; error?: string } | null;
 
+      if (res.status === 429) {
+        setError(data?.error ?? "I'm getting a lot of questions right now — give me a moment and try again shortly.");
+        return;
+      }
+
       if (!res.ok || !data?.reply) {
         throw new Error(data?.error ?? "Something went wrong.");
       }

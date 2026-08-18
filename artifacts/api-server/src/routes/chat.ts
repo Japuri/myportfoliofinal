@@ -104,6 +104,10 @@ router.post("/chat", chatRateLimiter, async (req, res) => {
     if (!response.ok) {
       const errText = await response.text();
       logger.error({ status: response.status, errText }, "Gemini API error");
+      if (response.status === 429) {
+        res.status(429).json({ error: "I'm getting a lot of questions right now — give me a moment and try again shortly." });
+        return;
+      }
       res.status(502).json({ error: "Chat service is having trouble right now." });
       return;
     }
