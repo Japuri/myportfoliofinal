@@ -8,40 +8,19 @@ interface ChatMessage {
   text: string;
 }
 
-const STORAGE_KEY = "chatbot-history";
 const GREETING: ChatMessage = {
   role: "assistant",
   text: "Hey, I'm Jakob. Ask me about my projects, stack, or experience.",
 };
 
-function loadHistory(): ChatMessage[] {
-  if (typeof window === "undefined") return [GREETING];
-  try {
-    const raw = sessionStorage.getItem(STORAGE_KEY);
-    if (!raw) return [GREETING];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) && parsed.length > 0 ? parsed : [GREETING];
-  } catch {
-    return [GREETING];
-  }
-}
-
 export function Chatbot() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>(loadHistory);
+  const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
   const [input, setInput] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-    } catch {
-      /* non-critical */
-    }
-  }, [messages]);
 
   useEffect(() => {
     if (!open) return;
