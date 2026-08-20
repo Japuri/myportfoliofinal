@@ -10,6 +10,18 @@ export type Cert = {
 
 export const CERTIFICATIONS: Cert[] = [
   {
+    name: "CCNA: Introduction to Networks",
+    provider: "Cisco Networking Academy",
+    href: "/certificates/ccna-introduction-to-networks.pdf",
+    type: "certificate",
+  },
+  {
+    name: "CCNA: Switching, Routing, and Wireless Essentials",
+    provider: "Cisco Networking Academy",
+    href: "/certificates/ccna-switching-routing-wireless-essentials.pdf",
+    type: "certificate",
+  },
+  {
     name: "Claude Academy: Building with the Claude API",
     provider: "Anthropic",
     href: "https://academy.claude.com/verify/d0ce884d71c2c7a471c97ca00fb09185",
