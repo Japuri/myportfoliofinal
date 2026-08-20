@@ -10,6 +10,24 @@ export type Cert = {
 
 export const CERTIFICATIONS: Cert[] = [
   {
+    name: "Claude Academy: Building with the Claude API",
+    provider: "Anthropic",
+    href: "https://academy.claude.com/verify/d0ce884d71c2c7a471c97ca00fb09185",
+    type: "certificate",
+  },
+  {
+    name: "Claude with Google Cloud's Vertex AI",
+    provider: "Skilljar",
+    href: "https://verify.skilljar.com/c/xxapcugjs4ko",
+    type: "certificate",
+  },
+  {
+    name: "AI Fluency Framework & Foundations",
+    provider: "Skilljar",
+    href: "https://verify.skilljar.com/c/zip6ta8wx9jf",
+    type: "certificate",
+  },
+  {
     name: "LLMOps: Building Real-World Applications With Large Language Models",
     provider: "Udacity",
     href: "https://www.udacity.com/certificate/e/b45c79ca-921b-11f1-895e-1f8def29d172",
